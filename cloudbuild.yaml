@@ -1,0 +1,21 @@
+steps:
+- name: 'gcr.io/cloud-builders/go'
+  args: ["install", "-gcflags=-N", "-gcflags=-l" ,"."]
+  env: ['PROJECT_ROOT=github.com/roberson34/stackdriver-demo', 'CGO_ENABLED=0', 'GOOS=linux']
+ 
+- name: 'gcr.io/kaniko-project/executor:latest'
+  args:
+  - --destination=gcr.io/$PROJECT_ID/app-img:$SHORT_SHA
+  - --cache=true
+  - --cache-ttl=8h
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - set
+  - image
+  - deployment
+  - app-server-deployment
+  - app-server=gcr.io/$PROJECT_ID/app-img:$SHORT_SHA
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=australia-southeast1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=app-cluster-one'
