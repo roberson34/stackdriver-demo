@@ -10,7 +10,7 @@ COPY gopath/bin/stackdriver-demo /stackdriver-demo
 ADD go-cloud-debug /
 ADD source-context.json /
 
-CMD ["/go-cloud-debug","-sourcecontext=./source-context.json", "-appmodule=go-errrep","-appversion=1.0","--","/go-errep"]
+CMD ["/go-cloud-debug","-sourcecontext=./source-context.json", "-appmodule=go-errrep","-appversion=1.0","--","/stackdriver-demo"]
 
 
 EXPOSE 80
