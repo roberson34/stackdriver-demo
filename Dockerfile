@@ -4,7 +4,7 @@ WORKDIR $GOPATH/src/github.com/roberson34/stackdriver-demo
 
 COPY . .
 
-COPY gopath/bin/stackdriver-demo /stackdriver-demo
+COPY /go/bin/stackdriver-demo /stackdriver-demo
 
 CMD "/stackdriver-demo"
 
