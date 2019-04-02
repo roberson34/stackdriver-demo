@@ -3,7 +3,7 @@
 First create cluster
 
 ```
-gcloud container clusters create app-cluster-one --num-nodes=1 --preemptible
+gcloud container clusters create app-cluster-one --num-nodes=1 --scopes https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud_debugger --preemptible
 ```
 
 Apply config with

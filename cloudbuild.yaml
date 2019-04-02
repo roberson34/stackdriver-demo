@@ -15,7 +15,16 @@ steps:
 - name: 'gcr.io/cloud-builders/go'
   args: ["install", "-gcflags=-N", "-gcflags=-l" ,"."]
   env: ['PROJECT_ROOT=github.com/roberson34/stackdriver-demo', 'CGO_ENABLED=0', 'GOOS=linux']
- 
+
+- name: 'gcr.io/cloud-builders/go'
+  args: ["get", "-u", "cloud.google.com/go/cmd/go-cloud-debug-agent"]
+  env: ['PROJECT_ROOT=github.com/roberson34/stackdriver-demo', 'CGO_ENABLED=0', 'GOOS=linux']
+
+- name: 'gcr.io/cloud-builders/go'
+  args: ["install", "cloud.google.com/go/cmd/go-cloud-debug-agent"]
+  env: ['PROJECT_ROOT=github.com/roberson34/stackdriver-demo', 'CGO_ENABLED=0', 'GOOS=linux']
+
+
 - name: 'gcr.io/kaniko-project/executor:latest'
   args:
   - --destination=gcr.io/$PROJECT_ID/app-img:$SHORT_SHA
