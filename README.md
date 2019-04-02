@@ -20,4 +20,4 @@ gcr.io/amx-instance-1/app-img:efae6bd
 Othwise you can run the cloudbuild.yaml file on [Cloud Build](https://console.cloud.google.com/cloud-build).
 
 
-Fork this repo on github, add it as a trigger and run it.
+Fork this repo on github, add it as a trigger.
