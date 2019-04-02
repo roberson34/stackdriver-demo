@@ -1,4 +1,4 @@
-FROM golang:alpine AS builder
+FROM golang:alpine
 
 WORKDIR $GOPATH/src/github.com/roberson34/stackdriver-demo
 
@@ -6,7 +6,6 @@ COPY . .
 
 COPY gopath/bin/stackdriver-demo /stackdriver-demo
 
-# CMD "/go/bin/go-cloud-debug-agent/stackdriver-demo"
 ADD gopath/bin/go-cloud-debug-agent /
 
 ADD source-context.json /
