@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:debian
 
 WORKDIR $GOPATH/src/github.com/roberson34/stackdriver-demo
 
