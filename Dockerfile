@@ -1,4 +1,4 @@
-FROM golang:debian
+FROM golang:1.12.1-stretch
 
 WORKDIR $GOPATH/src/github.com/roberson34/stackdriver-demo
 
