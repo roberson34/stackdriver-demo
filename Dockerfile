@@ -3,8 +3,8 @@ FROM golang:alpine
 RUN apk add git
 RUN go get -u cloud.google.com/go/cmd/go-cloud-debug-agent
 
-ADD main.go src
-RUN CGO_ENABLED=0 go build -gcflags=all='-N -l' src/main.go
+COPY . .
+RUN CGO_ENABLED=0 go build -gcflags=all='-N -l' .
 
 ADD source-context.json /
 
