@@ -14,7 +14,7 @@ spec:
         app: app-server
     spec:
       containers:
-      - image: gcr.io/amx-instance-1/app-img:d985834
+      - image: gcr.io/amx-instance-1/app-img:08a7edb
         name: app-server
         ports:
         - containerPort: 8080
