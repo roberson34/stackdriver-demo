@@ -1,29 +1,4 @@
 steps:
-- name: gcr.io/cloud-builders/wget
-  args: [
-    "-O",
-    "go-cloud-debug",
-    "https://storage.googleapis.com/cloud-debugger/compute-go/go-cloud-debug"
-  ]
-# chmod ~ugo+rx go-cloud-debug
-# this shouldn't work -- the /workspace directory is not mapped -- but it does !?
-- name: busybox
-  args: [
-    "chmod","0755","go-cloud-debug",
-  ]
-    
-- name: 'gcr.io/cloud-builders/go'
-  args: ["install", "-gcflags=-N", "-gcflags=-l" ,"."]
-  env: ['PROJECT_ROOT=github.com/roberson34/stackdriver-demo', 'CGO_ENABLED=0', 'GOOS=linux']
-
-- name: 'gcr.io/cloud-builders/go'
-  args: ["get", "-u", "cloud.google.com/go/cmd/go-cloud-debug-agent"]
-  env: ['PROJECT_ROOT=github.com/roberson34/stackdriver-demo', 'CGO_ENABLED=0', 'GOOS=linux']
-
-- name: 'gcr.io/cloud-builders/go'
-  args: ["install", "-gcflags=-N", "-gcflags=-l", "cloud.google.com/go/cmd/go-cloud-debug-agent"]
-  env: ['PROJECT_ROOT=github.com/roberson34/stackdriver-demo', 'CGO_ENABLED=0', 'GOOS=linux']
-
 
 - name: 'gcr.io/kaniko-project/executor:latest'
   args:
